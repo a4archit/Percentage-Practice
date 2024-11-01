@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+		<title>Percentage Practice</title>
+		<link rel="stylesheet" href="Portfolio Home Design.css">
+		<style type="text/css">
+			body {
+				background-color: #f2f2f2;
+			}
+			#ans{ margin-left: 15px;}
+			#navBar {
+				height:80px;
+				padding:1px;
+				background-color: skyblue;
+				box-sizing:border-box;
+				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+				margin: -8px;
+				font-family: 'Signika Negative', sans-serif;
+			}
+			#logo {
+				margin-left: 5%;
+				color: white;
+				float:left;
+				font-size:30px;
+				margin-top:15px;
+				text-shadow: 0 5px 0 5px black;
+			}
+			
+			#about {
+				background-color:white;
+				float:right;
+				margin-right:10%;
+			}
+			
+			#level, #maxValue  {
+				width:180px;
+				padding:5px;
+				font-size:15px;
+				float:right;
+				border-radius:10px;
+				background-color: #f2f2f2;
+				margin:2px;
+				border: .5px solid lightgray;
+			}
+			
+			#level {margin-top: -7px;}
+			
+			#ques {
+				padding:8px;
+				margin-left:-10px;
+				margin-top:-10px;
+				width:50px;
+				text-align:center;
+				padding-top:15px;
+				height:40px;
+				color: black;
+				float:left;
+				border-radius:100px;
+				margin-right:15px;
+				box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+			}
+			#qline { 
+				margin-left: 15px;
+				margin-top: 20px;
+				font-size: 25px;
+			}			
+			button {
+				width:110px;
+				height:auto;
+				padding:10px;
+				font-size:20px;
+				cursor:pointer;
+				border:none;
+				border-radius:25px;
+				background-color:#f2f2f2;
+				margin-left:15px;
+				margin-top:20px;
+				font-family: 'Signika Negative', sans-serif;
+			}
+			
+			#boxBorder {
+				margin-top:50px;
+				border-radius:30px;
+				padding:40px;
+				height:25p0px;
+				width:260px;
+				background-color:white;
+				box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+			}
+			#answerUI  {
+				box-sizing:border-box;
+				margin-top:30px;
+				margin-left:75px;
+			}
+			#ansDiv  {
+				margin-left:15px;
+				color: green;
+			}
+			
+			#restart {
+				width:240px;
+			}
+			
+			a {text-decoration:none;}
+			a:hover {text-decoration:underline;}
+			h5{
+				margin-left: 25%;
+			}
+		</style>
+	</head>
+	<body onoffline="offline()" >
+	<div id="navBar" >
+		<h2 id="logo" ><big>%</big> <sub>Challenge</sub></h2>
+		<button id="about" onclick="alert('Hello dear, \nThis is a Maths & Daily life problem based program. You can increase your maths calculation skill with the help of this program. \n \nTechnical Details: \n• Size\t\t\t\t: 6.88 KB \n• Languages: HTML, CSS, JAVASCRIPT \n• Time of making: 2 days \n\n THANK YOU!')" >
+			About</button>
+	</div>
+	<br>
+	<br>
+	</span>
+	
+<!--	<a href="/storage/emulated/0/WEB PROJECTS/Portfolio Home.html" class="back back-hover" id="back"  >Back</a> -->
+	<div id="boxBorder" >
+		<h1 id="ques" ><b id="qno" ></b></h1>
+		<select id="level" >
+			<option value="EASY" >Easy</option>
+			<option value="MEDIUM" >Medium</option>
+			<option value="HARD" >Hard</option>
+		</select>
+		<select id="maxValue" >
+			<option value="10" >10 (Max no)</option>
+			<option value="100" >100</option>
+			<option value="1000" >1000</option>
+			<option value="10000" >10000</option>
+		</select>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1 id="qline" >Find <b id="percentage" ></b>% of 
+			<b id="no" ></b>
+		</h1>
+		<br>
+		<div id="ansDiv" >
+			<h4 id="ta" >= ?</h4>
+		</div>		
+		<button id="ansBtn" >Answer</button>
+		<button id="next" onclick="main()">Next</button>
+		<button id="restart" onclick="restart()">Restart</button>
+	</div>
+		<br>
+		<div id="answerUI" >
+			<h3 id="ans" ></h3>
+		</div>
+		
+		<h5>Design & Developed by <a href="mailto:help.atd@gmail.com" >Archit Tyagi</a></h5>
+		
+		<script type="text/javascript">
+			document.getElementById('next').click()
+			var count = 1;
+			document.getElementById('qno').innerHTML = count
+			
+			
+			function main(){
+				count++;
+				document.getElementById('ans').innerHTML = "";
+				document.getElementById('ta').innerHTML = "= ?"
+				
+				
+				const easyNum = [1,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95],
+					mediumNum = Math.floor((Math.random() * 100) + 1);
+				
+				let maxValue = document.getElementById('maxValue').value
+				let percentage //= Math.floor((Math.random() * 100) + 1),
+				let	number = Math.floor((Math.random() * maxValue) + 1);
+				
+				let levelSelection = document.getElementById('level').value;
+				
+				
+				// level up  ----- Code block
+				if(count%10 == 1 && count != 1 &&levelSelection != "HARD"){
+					count--
+					if(confirm("Hey you complete your " + count + " questions. \n\nNow it's time to increase your brain power by increase level.")==true){
+						if(levelSelection == "EASY"){
+							document.getElementById('level').value = "MEDIUM"
+							if(maxValue == 10)document.getElementById('maxValue').value = 100
+						}
+						else{
+							document.getElementById('level').value = "HARD"
+							if(maxValue <= 100 )document.getElementById('maxValue').value = 1000
+						}
+					}
+					count++
+				}
+				
+					
+					if (levelSelection == "EASY"){
+						percentage = getRandomNum(easyNum);
+					}
+					else if(levelSelection == "MEDIUM"){
+						percentage = mediumNum
+					}
+					else{
+						percentage = Math.floor((Math.random() * 10000) + 1)/100;
+					}
+				var	percentValue = percentage * number/100;
+				
+				document.getElementById('percentage').innerHTML = percentage
+				document.getElementById('no').innerHTML = number
+				document.getElementById('qno').innerHTML = count
+				document.getElementById('ansBtn').onclick = function () {
+					document.getElementById('ta').innerHTML = "= " + percentValue;
+				}
+				
+				
+				
+			}
+			 function getRandomNum(arr) {
+				 // get random index value
+				 const randomIndex = Math.floor(Math.random() * arr.length);
+				 // get random item
+				 const item = arr[randomIndex];
+			 return item;
+			 }
+			 
+			function restart(){
+				if(confirm("Do you want to restart the Program?") == true){
+					count = 1
+					document.getElementById('qno').innerHTML = count
+					count--
+					document.getElementById('level').value = "EASY"
+					document.getElementById('maxValue').value = 10
+					document.getElementById('next').click()
+				}
+			}
+			
+			function offline(){
+				alert("You are offline.\n\nPlease connect to internet for better experience.")
+			}
+			
+			const audio = new Audio("/storage/emulated/0/Download/Mouse-Click-00-c-FesliyanStudios.com.mp3");
+			const buttons = document.querySelectorAll("button");
+			
+			buttons.forEach(button => {
+				button.addEventListener("click", () => {
+					audio.play();
+				});
+			});
+			
+			
+		</script>
+	</body>
+</html>
